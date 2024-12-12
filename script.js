@@ -7,7 +7,6 @@ function showSlides() {
   let dots = document.getElementsByClassName("dot");
   for (i = 0; i < slides.length; i++) {
     slides[i].style.display = "none";
-    // hello world
   }
   slideIndex++;
   if (slideIndex > slides.length) {slideIndex = 1}    
