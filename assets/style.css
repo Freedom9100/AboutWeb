@@ -1,8 +1,11 @@
+/* Подключение шрифтов и основные настройки */
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 * {
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
     text-decoration: none;
     font-family: 'Inter', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
@@ -11,11 +14,24 @@
     display: none;
 }
 
+.general-butt {
+    padding: 5px 7px;
+    color: white;
+    background-color: #a00101;
+    border-radius: 15px;
+}
+
+.general-butt:hover {
+    box-shadow: 3px 4px;
+    background-color: #b10707;
+}
+
 .container {
     max-width: 100%;
-    height: 50px;
     margin: 0 15%
 }
+
+/* Верхушка */
 
 header {
     width: 100%;
@@ -36,8 +52,13 @@ header {
     gap: 10px;
 }
 
+.logo img {
+    width: 60px;
+}
+
 .nav {
     display: flex;
+    align-items: center;
     gap: 20px;
 }
 
@@ -52,20 +73,80 @@ header {
     border-radius: 15px;
 }
 
-.logo img {
-    width: 60px;
+.burger {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    cursor: pointer;
+    width: 25px;
+    height: 30px;
+    transition: .5s;
+    display: none;
 }
+
+.burger-line {
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.adaptive-nav {
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: absolute;
+    text-align: end;
+    width: 100px;
+    height: 110px;
+    font-size: 8px;
+    border-radius: 0 0 0 15px;
+    padding: 20px 10px;
+    background-color: #6508088c;
+    z-index: 1;
+    transition-duration: 500ms;
+    opacity: 0;
+    @media (min-width: 321px) {
+        display: none;
+    }
+}
+
+.adaptive-nav.active {
+    opacity: 1;
+    background-color: #6508088c;
+}
+
+.adaptive-nav a {
+    color: white;
+    font-size: 10px;
+    transition: .3s ease-in-out .1s;
+}
+
+.adaptive-nav a:hover {
+    transform: translateY(-2px);
+}
+
+
+/* Главная часть */
 
 main {
-    display: flex;
-    align-items: center;
     background-image: url(../img/dark-red-bg.jpg);
-    height: 90vh;
     background-size: cover;
+    padding: 50px 0;
+    @media (max-width:320px) {
+        height: auto;
+        padding: 40px 0;
+    }
 }
 
-main h1, h2, h3, p {
+main h1, h2, h3, h4, h5, p{
     color: white;
+}
+
+main h4 {
+    color: #dd0a0a;
 }
 
 .general-page {
@@ -73,9 +154,71 @@ main h1, h2, h3, p {
     border-radius: 15px;
     background-color: rgba(170, 167, 167, 0.3);
     width: 70%;
-    height: 80%;
+    height: 70%;
     padding: 25px 40px;
 }
+
+/* Часть с текстом */
+
+.text-part {
+    width: 100%;
+    text-align: center;
+    padding: 30px 0;
+}
+
+.text-part span {
+    color: #dd0a0a;
+}
+
+.text-part h3 {
+    margin: 20px 0 0;
+}
+
+.text-part h4 {
+    margin: 15px 0 0;
+    font-weight: 400;
+}
+
+.text-part p {
+    text-align: start;
+    margin: 25px 0 0;
+    line-height: 22px;
+    @media (max-width: 320px) {
+        text-align: center;
+    }
+}
+
+.text-part img {
+    width: 30%;
+}
+
+.bottom-staff {
+    display: flex;
+}
+
+.butt-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.butt-container a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+    padding: 10px 5px;
+    transition: .5s ease-in-out;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Слайдер */
 
 .slideshow-container {
     display: flex;
@@ -85,28 +228,9 @@ main h1, h2, h3, p {
     width: 90%;
 }
 
-.text-part {
-    width: 100%;
-    text-align: center;
-    padding: 30px 0;
-}
-
-.text-part h3 {
-    margin: 20px 0 0;
-}
-
-.text-part p {
-    margin: 15px 0 0;
-}
-
-.text-part span {
-    color: #dd0a0a;
-}
-
-.wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+@keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
 }
 
 .slideshow-container img {
@@ -120,8 +244,8 @@ main h1, h2, h3, p {
 }
 
 .dot {
-    height: 15px;
-    width: 15px;
+    height: 10px;
+    width: 10px;
     margin: 0 2px;
     background-color: #bbb;
     border-radius: 50%;
@@ -138,7 +262,125 @@ main h1, h2, h3, p {
     animation-duration: 1.5s;
 }
 
-@keyframes fade {
-    from {opacity: .4} 
-    to {opacity: 1}
+footer {
+    height: 10rem;
+    background-color: #111111;
+}
+
+.footer-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 15px 0 0;
+}
+
+.contact-links {
+    display: flex;
+    justify-content: space-between;
+    width: 20%;
+    @media (max-width: 320px) {
+        display: none;
+    } 
+}
+
+.contact-links a {
+    color: white;
+    transition: .3s ease-in-out .1s;
+}
+
+.contact-links a:hover {
+    transform: translateY(-2px);
+}
+
+.adaptive-footer {
+    display: none;
+    @media (max-width:320px) {
+        display: flex;
+        width: 60%;
+    }
+}
+
+/* Адаптив */
+
+@media screen and (max-width: 320px) {
+    .logo img {
+        width: 30px;
+    }
+
+    .logo h2 {
+        font-size: 16px;
+    }
+
+    .nav a {
+        display: none;
+    }
+
+    .nav .burger {
+        display: flex;
+    }
+
+    .slideshow-container {
+        justify-content: center;
+    }
+
+    .slideshow-container img {
+        width: 150px;
+    }
+
+
+    .dot {
+        width: 5px;
+        height: 5px;
+    }
+
+    .general-page {
+        flex-direction: column-reverse;
+        padding: 7px 5px;
+    }
+
+    .text-part {
+        width: 95%;
+        padding: 15px 7px;
+    }
+
+    h1 {
+        font-size: 14px;
+    }
+
+    h2 {
+        font-size: 16px;
+    }
+
+    h3 {
+        font-size: 13px;
+    }
+
+    h4 {
+        font-size: 13px;
+    }
+
+    h5 {
+        font-size: 10px;
+    }
+
+    p {
+        font-size: 11px;
+    }
+
+    .bottom-staff a {
+        height: 25px;
+        width: 100px;
+    }
+
+    .bottom-staff a:hover {
+        box-shadow: none;
+    }
+
+    .general-butt {
+        font-size: 10px;
+    }
+
+    .contact-text h3 {
+        font-size: 16px;
+    }
 }

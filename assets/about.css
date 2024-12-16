@@ -1,0 +1,141 @@
+@import url("/assets/speciality.css");
+
+/* Главная часть */
+
+.main-container {
+    display: flex;
+    gap: 30px;
+    border-radius: 15px;
+    background-color: rgba(170, 167, 167, 0.3);
+
+    @media (max-width: 320px) {
+        flex-direction: column;
+        padding: 25px 20px;
+        gap: 30px;
+        padding: 0;
+    }
+}
+
+.main-container img {
+    width: 30%;
+    border-radius: 15px;
+    box-shadow: 5px 0px 7px rgba(27, 26, 26, 0.348);
+
+    @media (max-width: 320px) {
+        width: 100%;
+        box-shadow: 0px 6px 7px rgba(27, 26, 26, 0.348);
+    }
+}
+
+.main-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+
+    h3 {
+        text-align: center;
+        font-size: 30px;
+    }
+
+    p {
+        padding: 0 50px;
+        text-align: center;
+    }
+
+    @media (max-width: 320px) {
+        padding: 10px 15px 20px;
+
+        h3 {
+            font-size: 20px;
+        }
+
+        p {
+            padding: 0;
+        }
+    }
+}
+
+.from-container {
+    display: flex;
+    flex-direction: column;
+    padding: 25px 30px;
+    gap: 30px;
+    border-radius: 15px;
+    background-color: rgba(170, 167, 167, 0.3);
+
+    @media (max-width: 320px) {
+        flex-direction: column;
+        padding: 25px 20px;
+        gap: 30px;
+    }
+}
+
+.img-block {
+    display: flex;
+    justify-content: space-between;
+
+    img {
+        width: 30%;
+        height: 200px;
+        border-radius: 15px;
+        transition: .5s ease-in-out .1s;
+        box-shadow: 2px 3px 3px rgba(21, 21, 21, 0.348);
+    }
+
+    img:hover {
+        transform: translateY(-3px);
+        box-shadow: none;
+    }
+
+    @media (max-width: 320px) {
+        flex-direction: column;
+        gap: 10px;
+
+        img {
+            width: 100%;
+        }
+    }
+}
+
+.from-text {
+    text-align: center;
+}
+
+.proj-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    border-radius: 15px;
+    padding: 25px 30px;
+    gap: 50px;
+    background-color: rgba(170, 167, 167, 0.3);
+
+    @media (max-width: 320px) {
+        flex-direction: column;
+        padding: 25px 20px;
+        gap: 30px;
+    }
+}
+
+.proj-container {
+    padding: 10px 15px;
+    box-shadow: 0px 0px 8px 6px rgba(24, 24, 24, 0.3);
+    border-radius: 5px;
+
+    img {
+        width: 100%;
+        height: 150px;
+        border-radius: 15px;
+        transition: .4s ease-in-out .1s;
+    }
+
+    img:hover {
+        transform: translateY(-3px);
+    }
+        
+    p {
+        text-align: center;
+        padding: 5px 0 0;
+    }
+}
